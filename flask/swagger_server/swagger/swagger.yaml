@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: Geo Coordinates API
+  description: "API for sending current geo-coordinates and receiving records with\
+    \ image, name, and geo-coordinates."
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /geo-records:
+    post:
+      summary: Send current geo-coordinates and receive records.
+      operationId: geo_records_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/georecords_body'
+        required: true
+      responses:
+        "200":
+          description: "List of records containing image, name, and geo-coordinates."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                x-content-type: application/json
+        "400":
+          description: Bad request. Invalid input provided.
+        "500":
+          description: Internal server error.
+      x-openapi-router-controller: swagger_server.controllers.default_controller
+components:
+  schemas:
+    georecords_body:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: Latitude of the current location.
+          format: double
+          example: 12.971598
+        longitude:
+          type: number
+          description: Longitude of the current location.
+          format: double
+          example: 77.594566
+    georecords_coordinates:
+      type: object
+      properties:
+        latitude:
+          type: number
+          description: Latitude of the record.
+          format: double
+          example: 12.971891
+        longitude:
+          type: number
+          description: Longitude of the record.
+          format: double
+          example: 77.641151
+      example:
+        latitude: 12.971891
+        longitude: 77.641151
+    inline_response_200:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the record.
+          example: Pothole near MG Road
+        image:
+          type: string
+          description: URL to the image.
+          format: uri
+          example: https://example.com/images/pothole.jpg
+        coordinates:
+          $ref: '#/components/schemas/georecords_coordinates'
+      example:
+        image: https://example.com/images/pothole.jpg
+        name: Pothole near MG Road
+        coordinates:
+          latitude: 12.971891
+          longitude: 77.641151
+
