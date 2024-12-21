@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Photos/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px);  /* Apply blur effect */
+    z-index: -1; /* Put the blurred background behind the content */
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.auth-forms {
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, button {
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    font-size: 14px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.login-form, .signup-form {
+    display: block;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
