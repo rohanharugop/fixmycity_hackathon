@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #003f7f;
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.action-button {
+    width: 48%;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+}
+.photo-container {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 700px; /* Updated size */
+    text-align: center;
+}
+
+.photo-preview {
+    max-width: 100%; /* Fits the container */
+    max-height: 700px; /* Updated height */
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.upvote-count,
+.donation-total {
+    margin: 0 10px;
+}
+
+.options-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+.action-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.remove-icon {
+    position: absolute;
+    top: -10px; /* Adjusted to position outside the photo */
+    right: -10px; /* Adjusted to position outside the photo */
+    font-size: 30px;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.remove-icon:hover {
+    color: #cc0000;
+}
+
+

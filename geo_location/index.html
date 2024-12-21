@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geolocation and Photo Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>User Geolocation and Photo Form</h1>
+
+    <!-- Section to take and display photo -->
+    <div class="form-section">
+      <h2>Take a Photo</h2>
+      <button onclick="launchCamera()">Launch Camera</button>
+      <div id="photoContainer" style="display: none; margin-top: 20px">
+        <img id="photoPreview" alt="Photo Preview" />
+        <div class="options-container">
+          <button onclick="upvotePhoto()" class="action-button">Upvote</button>
+          <button onclick="donatePhoto()" class="action-button">Donate</button>
+        </div>
+        <p id="upvoteCount">Upvotes: 0</p>
+        <p id="donationAmount">Total Donations: $0</p>
+      </div>
+    </div>
+  </body>
+</html>
