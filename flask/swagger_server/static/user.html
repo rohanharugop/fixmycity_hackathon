@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css"> <!-- Update this path -->
+    <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    
+    <style>
+        .contractor-section {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        .points-display {
+            margin-left: 10px;
+            color: #666;
+        }
+        .contractor-badge {
+            margin-left: 5px;
+            font-size: 0.8em;
+            padding: 3px 8px;
+        }
+        .upvote-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        .star-rating {
+            display: flex;
+            cursor: pointer;
+        }
+        .star {
+            font-size: 1.5em;
+            color: #ccc;
+        }
+        .star.selected {
+            color: #f39c12;
+        }
+        /* New Filter Styles */
+        .filter-section {
+            position: fixed;
+            left: 20px;
+            top: 100px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .filter-section h5 {
+            margin-bottom: 15px;
+        }
+        .filter-buttons {
+            margin-bottom: 20px;
+        }
+        .disabled-controls {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .content-section {
+            margin-left: 180px;
+        }
+        .hidden-post {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
+    <!-- New Filter Section -->
+    <div class="filter-section">
+        <h5>Filter Posts</h5>
+        <div class="filter-buttons">
+            <div>
+                <input type="checkbox" id="in-progress" checked>
+                <label for="in-progress">In Progress</label>
+            </div>
+            <div>
+                <input type="checkbox" id="completed" checked>
+                <label for="completed">Completed</label>
+            </div>
+        </div>
+    </div>
+
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
@@ -19,10 +90,6 @@
                     <img src="images/picker.png" alt="Logo">
                 </div>
             </div>
-
-    
-               
-                              
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -32,39 +99,19 @@
               <a class="nav-item nav-link" href="about.html">ABOUT</a>
             </div>
             <div class="navbar-nav">
-              <a href="create_post.html" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Create Post
-              </a>
-              <a href="profile.html" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Profile
-              </a>
-              <a href="logout.html" id="auth-links">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Logout
-              </a>
+              <a href="create_post.html" id="auth-links">Create Post</a>
+              <a href="profile.html" id="auth-links">Profile</a>
+              <a href="logout.html" id="auth-links">Logout</a>
             </div>
           </div>
         </div>
       </nav>
     </header>
+    
     <main role="main" class="container">
       <div class="row">
-          
-        
         <div class="content-section">
             <div class="post-container">
-
                 <div class="post-info">
                     <span class="sender-name">Alice Smith</span>
                     <br>
@@ -72,9 +119,8 @@
                 </div>
 
                 <div class="post-type">
-                    <span class="badge badge-info">Bus Stop</span> <!-- Example: Change to 'Bus Stop', 'Waste', etc. -->
+                    <span class="badge badge-info">Bus Stop</span>
                 </div>
-            
 
                 <img src="images/busstop.jpg" alt="Bus Stop Issue">
 
@@ -82,17 +128,23 @@
                     <div class="col-10 mb-1 small">Seats are Broken</div>
                 </div>
 
+                <div class="contractor-section">
+                    <small>Assigned to: City Infrastructure Team</small>
+                    <span class="badge badge-secondary contractor-badge">In Progress</span>
+                </div>
+
                 <div class="upvote-container">
-                    <button class="upvote-button">
-                      <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 19V6M5 12l7-7 7 7"></path>
-                      </svg>
-                      Upvote
+                    <button class="upvote-button" onclick="handleUpvote(1)">
+                        <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19V6M5 12l7-7 7 7"></path>
+                        </svg>
+                        Upvote
                     </button>
+                    <span class="upvote-count" id="votes-1">15</span>
                 </div>
             </div>
         </div>
-        
+
         <div class="content-section">
             <div class="post-container">
                 <div class="post-info">
@@ -102,32 +154,42 @@
                 </div>
 
                 <div class="post-type">
-                    <span class="badge badge-info">Waste</span> <!-- Example: Change to 'Bus Stop', 'Waste', etc. -->
+                    <span class="badge badge-info">Waste</span>
                 </div>
-
-            
 
                 <img src="images/waste.jpg" alt="Waste Issue">
 
                 <div class="post-content">
-                    <div class="col-10 mb-1 small">Large amount of Green waste </div>
+                    <div class="col-10 mb-1 small">Large amount of Green waste</div>
                 </div>
 
-            
+                <div class="contractor-section">
+                    <small>Assigned to: Green City Waste Management</small>
+                    <span class="badge badge-secondary contractor-badge">Completed</span>
+                </div>
+
                 <div class="upvote-container">
-                    <button class="upvote-button">
-                      <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 19V6M5 12l7-7 7 7"></path>
-                      </svg>
-                      Upvote
+                    <button class="upvote-button" onclick="handleUpvote(2)">
+                        <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19V6M5 12l7-7 7 7"></path>
+                        </svg>
+                        Upvote
                     </button>
+                    <span class="upvote-count" id="votes-2">20</span>
+                </div>
+
+                <div class="star-rating" id="rating-2" data-post-id="2">
+                    <span class="star" onclick="ratePost(2, 1)">★</span>
+                    <span class="star" onclick="ratePost(2, 2)">★</span>
+                    <span class="star" onclick="ratePost(2, 3)">★</span>
+                    <span class="star" onclick="ratePost(2, 4)">★</span>
+                    <span class="star" onclick="ratePost(2, 5)">★</span>
                 </div>
             </div>
         </div>
 
         <div class="content-section">
             <div class="post-container">
-
                 <div class="post-info">
                     <span class="sender-name">Sangamesh</span>
                     <br>
@@ -135,32 +197,42 @@
                 </div>
 
                 <div class="post-type">
-                    <span class="badge badge-info">Pothole</span> <!-- Example: Change to 'Bus Stop', 'Waste', etc. -->
+                    <span class="badge badge-info">Pothole</span>
                 </div>
-            
                 
-                <img src="images/pathhole.jpg" alt="Bus Stop Issue">
-
+                <img src="images/pathhole.jpg" alt="Pothole Issue">
 
                 <div class="post-content">
-                    <div class="col-10 mb-1 small">Large 5 PathHoles due to heavy rain </div>
+                    <div class="col-10 mb-1 small">Large 5 Potholes due to heavy rain</div>
+                </div>
+
+                <div class="contractor-section">
+                    <small>Assigned to: Road Repair Solutions</small>
+                    <span class="badge badge-secondary contractor-badge">Completed</span>
                 </div>
 
                 <div class="upvote-container">
-                    <button class="upvote-button">
-                      <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 19V6M5 12l7-7 7 7"></path>
-                      </svg>
-                      Upvote
+                    <button class="upvote-button" onclick="handleUpvote(3)">
+                        <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="                        round">
+                            <path d="M12 19V6M5 12l7-7 7 7"></path>
+                        </svg>
+                        Upvote
                     </button>
-                  </div>
+                    <span class="upvote-count" id="votes-3">30</span>
+                </div>
+
+                <div class="star-rating" id="rating-3" data-post-id="3">
+                    <span class="star" onclick="ratePost(3, 1)">★</span>
+                    <span class="star" onclick="ratePost(3, 2)">★</span>
+                    <span class="star" onclick="ratePost(3, 3)">★</span>
+                    <span class="star" onclick="ratePost(3, 4)">★</span>
+                    <span class="star" onclick="ratePost(3, 5)">★</span>
+                </div>
             </div>
         </div>
-        
-      
 
         <footer>
-          <ul class="nav justify-content-center border-bottom"  style="margin-top: 60px;">
+          <ul class="nav justify-content-center border-bottom" style="margin-top: 60px;">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
             <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
@@ -169,13 +241,59 @@
           </ul>
           <p class="text-center text-muted">&copy; Techto</p>
         </footer>
-
     </main>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        // Original functions
+        function handleUpvote(postId) {
+            const votesElement = document.getElementById(`votes-${postId}`);
+            if (votesElement) {
+                let currentVotes = parseInt(votesElement.textContent);
+                votesElement.textContent = currentVotes + 1;
+            }
+        }
+
+        function ratePost(postId, rating) {
+            const stars = document.querySelectorAll(`#rating-${postId} .star`);
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+        }
+
+        // New filtering functionality
+        function filterPosts() {
+            const inProgressChecked = document.getElementById('in-progress').checked;
+            const completedChecked = document.getElementById('completed').checked;
+
+            document.querySelectorAll('.post-container').forEach(post => {
+                const status = post.querySelector('.contractor-badge').textContent.trim().toLowerCase();
+                
+                // Handle visibility
+                if (
+                    (status === 'in progress' && inProgressChecked) ||
+                    (status === 'completed' && completedChecked)
+                ) {
+                    post.classList.remove('hidden-post');
+                } else {
+                    post.classList.add('hidden-post');
+                }
+            });
+        }
+
+        // Add event listeners for filters
+        document.getElementById('in-progress').addEventListener('change', filterPosts);
+        document.getElementById('completed').addEventListener('change', filterPosts);
+
+        // Initial filter application
+        document.addEventListener('DOMContentLoaded', filterPosts);
+    </script>
 </body>
 </html>
