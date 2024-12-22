@@ -1,265 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/login.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/login.css" />
 
     <title>Users Registration</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html, body {
-            height: 100%;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
-        }
+      html,
+      body {
+        height: 100%;
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #fff;
+      }
 
-        .content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
 
+      .container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+      }
+
+      .card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-body {
+        padding: 40px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        color: #333;
+      }
+
+      .card-title {
+        font-size: 28px;
+        color: #6a11cb;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .text-muted {
+        color: #6c757d;
+        font-size: 14px;
+      }
+
+      .form-group label {
+        font-size: 16px;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      input[type="email"]:focus {
+        border-color: #2575fc;
+        outline: none;
+      }
+
+      .d-flex {
+        margin-bottom: 30px;
+      }
+
+      .control {
+        display: flex;
+        align-items: center;
+      }
+
+      .control input {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+      }
+
+      .control__indicator {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid #2575fc;
+        background-color: #fff;
+        transition: 0.3s;
+      }
+
+      input[type="checkbox"]:checked + .control__indicator {
+        background-color: #2575fc;
+        border-color: #2575fc;
+      }
+
+      .forgot-pass {
+        text-decoration: none;
+        font-size: 14px;
+        color: #2575fc;
+        transition: color 0.3s;
+      }
+
+      .forgot-pass:hover {
+        color: #6a11cb;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #2575fc;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #6a11cb;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-        }
-
-        .card {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 15px;
         }
 
         .card-body {
-            padding: 40px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            color: #333;
+          padding: 30px;
         }
 
         .card-title {
-            font-size: 28px;
-            color: #6a11cb;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .text-muted {
-            color: #6c757d;
-            font-size: 14px;
+          font-size: 24px;
         }
 
         .form-group label {
-            font-size: 16px;
-            color: #333;
+          font-size: 14px;
         }
 
-        input[type="text"], input[type="password"], input[type="email"] {
-            width: 100%;
-            padding: 12px;
-            margin-top: 6px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-            border-color: #2575fc;
-            outline: none;
-        }
-
-        .d-flex {
-            margin-bottom: 30px;
-        }
-
-        .control {
-            display: flex;
-            align-items: center;
-        }
-
-        .control input {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
-        }
-
-        .control__indicator {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 2px solid #2575fc;
-            background-color: #fff;
-            transition: 0.3s;
-        }
-
-        input[type="checkbox"]:checked + .control__indicator {
-            background-color: #2575fc;
-            border-color: #2575fc;
-        }
-
-        .forgot-pass {
-            text-decoration: none;
-            font-size: 14px;
-            color: #2575fc;
-            transition: color 0.3s;
-        }
-
-        .forgot-pass:hover {
-            color: #6a11cb;
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+          font-size: 14px;
+          padding: 10px;
         }
 
         button {
-            width: 100%;
-            padding: 12px;
-            background-color: #2575fc;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .card-body {
+          padding: 20px;
         }
 
-        button:hover {
-            background-color: #6a11cb;
+        .card-title {
+          font-size: 22px;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .card-body {
-                padding: 30px;
-            }
-
-            .card-title {
-                font-size: 24px;
-            }
-
-            .form-group label {
-                font-size: 14px;
-            }
-
-            input[type="text"], input[type="password"], input[type="email"] {
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            button {
-                font-size: 14px;
-            }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+          font-size: 14px;
+          padding: 8px;
         }
 
-        @media (max-width: 576px) {
-            .card-body {
-                padding: 20px;
-            }
-
-            .card-title {
-                font-size: 22px;
-            }
-
-            input[type="text"], input[type="password"], input[type="email"] {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            button {
-                font-size: 14px;
-            }
+        button {
+          font-size: 14px;
         }
-
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="content">
-        <div class="container">
-            <div class="row justify-content-center align-items-center min-vh-100">
-                <div class="col-md-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title text-center mb-4">Create Your Account</h3>
+      <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+          <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title text-center mb-4">Create Your Account</h3>
 
-                            <span class="mb-0 text-muted">
-                                Please fill in the form to register.
-                            </span>
+                <span class="mb-0 text-muted">
+                  Please fill in the form to register.
+                </span>
 
-                            <form method="POST" action="your_backend_registration_url">
+                <form method="POST" action="your_backend_registration_url">
+                  <div class="form-group mb-3">
+                    <label for="username">Username</label>
+                    <input
+                      type="text"
+                      id="username"
+                      name="username"
+                      class="form-control"
+                      required
+                    />
+                  </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="username">Username</label>
-                                    <input type="text" id="username" name="username" class="form-control" required>
-                                </div>
+                  <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-control"
+                      required
+                    />
+                  </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
+                  <div class="form-group mb-3">
+                    <label for="password1">Password</label>
+                    <input
+                      type="password"
+                      id="password1"
+                      name="password1"
+                      class="form-control"
+                      required
+                    />
+                  </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="password1">Password</label>
-                                    <input type="password" id="password1" name="password1" class="form-control" required>
-                                </div>
+                  <div class="form-group mb-3">
+                    <label for="password2">Confirm Password</label>
+                    <input
+                      type="password"
+                      id="password2"
+                      name="password2"
+                      class="form-control"
+                      required
+                    />
+                  </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="password2">Confirm Password</label>
-                                    <input type="password" id="password2" name="password2" class="form-control" required>
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label>Select Your Role:</label><br>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" id="admin" name="role" value="admin" class="form-check-input">
-                                        <label for="admin" class="form-check-label">Admin</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" id="contractor" name="role" value="contractor" class="form-check-input">
-                                        <label for="contractor" class="form-check-label">Contractor</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" id="authority" name="role" value="authority" class="form-check-input">
-                                        <label for="authority" class="form-check-label">Authority</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" id="user" name="role" value="user" class="form-check-input">
-                                        <label for="user" class="form-check-label">User</label>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary btn-block w-100">Register</button>
-                            </form>
-
-                            <div class="text-center mt-4">
-                                <span class="text-muted">Already have an account? <a href="login.html">Login here</a></span>
-                            </div>
-                        </div>
+                  <div class="form-group mb-3">
+                    <label>Select Your Role:</label><br />
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        id="admin"
+                        name="role"
+                        value="admin"
+                        class="form-check-input"
+                      />
+                      <label for="admin" class="form-check-label">Admin</label>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        id="contractor"
+                        name="role"
+                        value="contractor"
+                        class="form-check-input"
+                      />
+                      <label for="contractor" class="form-check-label"
+                        >Contractor</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        id="authority"
+                        name="role"
+                        value="authority"
+                        class="form-check-input"
+                      />
+                      <label for="authority" class="form-check-label"
+                        >Authority</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        id="user"
+                        name="role"
+                        value="user"
+                        class="form-check-input"
+                      />
+                      <label for="user" class="form-check-label">User</label>
+                    </div>
+                  </div>
 
+                  <button type="submit" class="btn btn-primary btn-block w-100">
+                    Register
+                  </button>
+                </form>
+
+                <div class="text-center mt-4">
+                  <span class="text-muted"
+                    >Already have an account?
+                    <a href="login.html">Login here</a></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mode-toggle">
+      <button id="toggle-dark-mode">
+        <svg
+          id="theme-icon"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+        >
+          <circle cx="12" cy="12" r="10" fill="url(#half-gradient)"></circle>
+          <defs>
+            <linearGradient id="half-gradient" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="50%" stop-color="black" />
+              <stop offset="50%" stop-color="white" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </button>
+    </div>
+    <script src="darkmode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-</body>
-
+  </body>
 </html>
