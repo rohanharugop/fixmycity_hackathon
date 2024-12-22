@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pothole Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <div class="icon-container">
+                    <div class="logo">
+                        <img src="images/picker.png" alt="Logo">
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="home.html">HOME</a>
+                        <a class="nav-item nav-link" href="about.html">ABOUT</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a href="create_post.html" class="nav-link">Create Post</a>
+                        <a href="profile.html" class="nav-link">Profile</a>
+                        <a href="logout.html" class="nav-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div id="content-section" class="content-section">
+                <!-- Dynamic content will be injected here -->
+            </div>
+        </div>
+
+        <footer>
+            <ul class="nav justify-content-center border-bottom mt-5">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            </ul>
+            <p class="text-center text-muted">&copy; Techto</p>
+        </footer>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Fetch data from the backend and populate the content section
+        async function fetchPotholes() {
+            try {
+
+              if (!navigator.geolocation) {
+                    throw new Error('Geolocation is not supported by this browser.');
+                }
+
+                // Get user's current location
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
+
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                const response = await fetch('/potholes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ latitude, longitude })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch potholes');
+                }
+
+                const data = await response.json();
+                const contentSection = document.getElementById('content-section');
+                contentSection.innerHTML = ''; // Clear existing content
+
+                data.potholes.forEach(pothole => {
+                    const postContainer = document.createElement('div');
+                    postContainer.classList.add('post-container', 'mb-4', 'p-3', 'border', 'rounded');
+
+                    postContainer.innerHTML = `
+                        <div class="post-info mb-2">
+                            <span class="sender-name">${pothole.title}</span><br>
+                            <small>Location: ${pothole.location}</small>
+                        </div>
+                        <div class="post-type mb-2">
+                            <span class="badge badge-info">Pothole</span>
+                        </div>
+                        <img src="${pothole.image}" alt="${pothole.title}" class="img-fluid mb-3">
+                        <div class="post-content mb-2">
+                            <div>${pothole.description}</div>
+                        </div>
+                        <div class="upvote-container">
+                            <button class="upvote-button btn btn-primary">
+                                Upvote
+                            </button>
+                        </div>
+                    `;
+
+                    contentSection.appendChild(postContainer);
+                });
+            } catch (error) {
+                console.error('Error fetching potholes:', error);
+                const contentSection = document.getElementById('content-section');
+                contentSection.innerHTML = '<p class="text-danger">Failed to load data.</p>';
+            }
+        }
+
+        // Call the function to fetch potholes when the page loads
+        document.addEventListener('DOMContentLoaded', fetchPotholes);
+    </script>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
