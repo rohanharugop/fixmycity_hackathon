@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Post</title>
@@ -13,21 +13,27 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="main.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon-32x32.png"
+    />
     <script
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places"
       async
       defer
     ></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-          <div class="container">
-              <div class="icon-container">
-                  <div class="logo">
-                      <img src="images/picker.png" alt="Logo">
-                  </div>
-              </div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <div class="icon-container">
+            <div class="logo">
+              <img src="images/picker.png" alt="Logo" />
+            </div>
+          </div>
 
           <button
             class="navbar-toggler"
@@ -39,13 +45,13 @@
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarToggle">
-              <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="home.html">HOME</a>
-                <a class="nav-item nav-link" href="about.html">ABOUT</a>
-              </div>
-              <div class="navbar-nav">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="home.html">HOME</a>
+              <a class="nav-item nav-link" href="about.html">ABOUT</a>
+            </div>
+            <div class="navbar-nav">
               <a href="profile.html" id="auth-links">
                 <span></span>
                 <span></span>
@@ -60,11 +66,11 @@
                 <span></span>
                 Logout
               </a>
-              </div>
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
     <div class="mode-toggle">
       <button id="toggle-dark-mode">
         <svg
@@ -86,114 +92,183 @@
     <script src="darkmode.js"></script>
 
     <div class="content-section">
-        <form id="report-pothole-form">
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">New Post</legend>
-                
-                <div class="form-field">
-                    <label for="post-title">Post Title</label>
-                    <input type="text" id="post-title" name="title" class="form-control" placeholder="Enter title" required>
-                </div>
+      <form id="report-pothole-form">
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">New Post</legend>
 
-                <div class="form-field">
-                    <label for="post-description">Post Description</label>
-                    <textarea id="post-description" name="description" class="form-control" placeholder="Enter description" required></textarea>
-                </div>
+          <div class="form-field">
+            <label for="post-title">Post Title</label>
+            <input
+              type="text"
+              id="post-title"
+              name="title"
+              class="form-control"
+              placeholder="Enter title"
+              required
+            />
+          </div>
 
-                <div class="form-field">
-                    <label for="post-image">Upload Image</label>
-                    <input type="file" id="post-image" name="image" class="form-control" accept="image/*" required>
-                </div>
+          <div class="form-field">
+            <label for="post-description">Post Description</label>
+            <textarea
+              id="post-description"
+              name="description"
+              class="form-control"
+              placeholder="Enter description"
+              required
+            ></textarea>
+          </div>
 
-                <div class="form-field">
-                    <label for="location">Location (Address)</label>
-                    <input type="text" id="location" name="location" class="form-control" readonly>
-                </div>
+          <div class="form-field">
+            <label for="post-image">Upload Image</label>
+            <input
+              type="file"
+              id="post-image"
+              name="image"
+              class="form-control"
+              accept="image/*"
+              required
+            />
+          </div>
 
-                <div class="form-field">
-                    <label for="latitude">Latitude</label>
-                    <input type="text" id="latitude" name="latitude" class="form-control" readonly>
-                </div>
+          <div class="form-field">
+            <label for="location">Location (Address)</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              class="form-control"
+              readonly
+            />
+          </div>
 
-                <div class="form-field">
-                    <label for="longitude">Longitude</label>
-                    <input type="text" id="longitude" name="longitude" class="form-control" readonly>
-                </div>
+          <div class="form-field">
+            <label for="latitude">Latitude</label>
+            <input
+              type="text"
+              id="latitude"
+              name="latitude"
+              class="form-control"
+              readonly
+            />
+          </div>
 
-                <div class="form-field">
-                    <button type="button" id="get-location-btn" class="btn btn-outline-info">Get Current Location</button>
-                </div>
+          <div class="form-field">
+            <label for="longitude">Longitude</label>
+            <input
+              type="text"
+              id="longitude"
+              name="longitude"
+              class="form-control"
+              readonly
+            />
+          </div>
 
-                <br><br>
-                <div class="form-field">
-                    <button type="submit" class="btn btn-submit">Post</button>
-                </div>
-            </fieldset>
-        </form>
+          <div class="form-field">
+            <button
+              type="button"
+              id="get-location-btn"
+              class="btn btn-outline-info"
+            >
+              Get Current Location
+            </button>
+          </div>
+
+          <br /><br />
+          <div class="form-field">
+            <button type="submit" class="btn btn-submit">Post</button>
+          </div>
+        </fieldset>
+      </form>
     </div>
 
-<script>
-    // Initialize Google Maps and Geolocation
-    function initMap() {
+    <script>
+      // Initialize Google Maps and Geolocation
+      function initMap() {
         if (navigator.geolocation) {
-            document.getElementById('get-location-btn').addEventListener('click', function () {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
+          document
+            .getElementById("get-location-btn")
+            .addEventListener("click", function () {
+              navigator.geolocation.getCurrentPosition(
+                function (position) {
+                  const lat = position.coords.latitude;
+                  const lon = position.coords.longitude;
 
-                    document.getElementById('latitude').value = lat;
-                    document.getElementById('longitude').value = lon;
+                  document.getElementById("latitude").value = lat;
+                  document.getElementById("longitude").value = lon;
 
-                    const geocoder = new google.maps.Geocoder();
-                    const latLng = { lat: lat, lng: lon };
+                  const geocoder = new google.maps.Geocoder();
+                  const latLng = { lat: lat, lng: lon };
 
-                    geocoder.geocode({ location: latLng }, function (results, status) {
-                        if (status === 'OK' && results[0]) {
-                            document.getElementById('location').value = results[0].formatted_address;
-                        } else {
-                            alert('Failed to retrieve address.');
-                        }
-                    });
-                }, function (error) {
-                    alert('Error getting location: ' + error.message);
-                });
+                  geocoder.geocode(
+                    { location: latLng },
+                    function (results, status) {
+                      if (status === "OK" && results[0]) {
+                        document.getElementById("location").value =
+                          results[0].formatted_address;
+                      } else {
+                        alert("Failed to retrieve address.");
+                      }
+                    }
+                  );
+                },
+                function (error) {
+                  alert("Error getting location: " + error.message);
+                }
+              );
             });
         } else {
-            alert('Geolocation is not supported by this browser.');
+          alert("Geolocation is not supported by this browser.");
         }
-    }
+      }
 
-    // Submit Form Data to reportPothole API
-    document.getElementById('report-pothole-form').addEventListener('submit', async function (event) {
-        event.preventDefault();
+      // Submit Form Data to reportPothole API
+      document
+        .getElementById("report-pothole-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
 
-        const formData = new FormData();
-        formData.append('title', document.getElementById('post-title').value);
-        formData.append('description', document.getElementById('post-description').value);
-        formData.append('latitude', document.getElementById('latitude').value);
-        formData.append('longitude', document.getElementById('longitude').value);
-        formData.append('image', document.getElementById('post-image').files[0]);
+          const formData = new FormData();
+          formData.append("title", document.getElementById("post-title").value);
+          formData.append(
+            "description",
+            document.getElementById("post-description").value
+          );
+          formData.append(
+            "latitude",
+            document.getElementById("latitude").value
+          );
+          formData.append(
+            "longitude",
+            document.getElementById("longitude").value
+          );
+          formData.append(
+            "image",
+            document.getElementById("post-image").files[0]
+          );
 
-        try {
-            const response = await fetch('/reportPothole', {
-                method: 'POST',
-                body: formData,
+          try {
+            const response = await fetch("/reportPothole", {
+              method: "POST",
+              body: formData,
             });
 
             if (!response.ok) {
-                const errorData = await response.json();
-                alert('Error: ' + (errorData.error || 'Failed to report pothole.'));
+              const errorData = await response.json();
+              alert(
+                "Error: " + (errorData.error || "Failed to report pothole.")
+              );
             } else {
-                alert('Pothole reported successfully!');
-                document.getElementById('report-pothole-form').reset();
+              alert("Pothole reported successfully!");
+              document.getElementById("report-pothole-form").reset();
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to submit the report. Please try again.');
-        }
-    });
+          } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to submit the report. Please try again.");
+          }
+        });
 
-    window.onload = initMap;
-</script>
-</body>
+      window.onload = initMap;
+    </script>
+  </body>
 </html>

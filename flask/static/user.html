@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css"> <!-- Update this path -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <!-- Update this path -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/favicon-32x32.png"
+    />
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <div class="icon-container">
-                    <div class="logo">
-                        <img src="images/picker.png" alt="Logo">
-                    </div>
-                </div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <div class="icon-container">
+            <div class="logo">
+              <img src="images/picker.png" alt="Logo" />
+            </div>
+          </div>
 
-    
-               
-                              
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="home.html">HOME</a>
-                        <a class="nav-item nav-link" href="about.html">ABOUT</a>
-                    </div>
-                    <div class="navbar-nav">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarToggle"
+            aria-controls="navbarToggle"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="home.html">HOME</a>
+              <a class="nav-item nav-link" href="about.html">ABOUT</a>
+            </div>
+            <div class="navbar-nav">
               <a href="create_post.html" id="auth-links">
                 <span></span>
                 <span></span>
@@ -53,87 +76,109 @@
                 <span></span>
                 Logout
               </a>
-                    </div>
-                </div>
             </div>
-        </nav>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main role="main" class="container">
-        <div class="row">
-            <div id="content-section" class="content-section">
-                <!-- Dynamic content will be injected here -->
-            </div>
+      <div class="row">
+        <div id="content-section" class="content-section">
+          <!-- Dynamic content will be injected here -->
         </div>
-        
-        <div class="mode-toggle">
-          <button id="toggle-dark-mode">
-            <svg id="theme-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-              <circle cx="12" cy="12" r="10" fill="url(#half-gradient)"></circle>
-              <defs>
-                <linearGradient id="half-gradient" x1="0" x2="1" y1="0" y2="0">
-                  <stop offset="50%" stop-color="black" />
-                  <stop offset="50%" stop-color="white" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </button>
-        </div>
-        
-        <script src="darkmode.js"></script>
+      </div>
 
-        <footer>
-          <ul class="nav justify-content-center border-bottom"  style="margin-top: 60px;">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-            <p class="text-center text-muted">&copy; Techto</p>
-        </footer>
+      <div class="mode-toggle">
+        <button id="toggle-dark-mode">
+          <svg
+            id="theme-icon"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+          >
+            <circle cx="12" cy="12" r="10" fill="url(#half-gradient)"></circle>
+            <defs>
+              <linearGradient id="half-gradient" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="50%" stop-color="black" />
+                <stop offset="50%" stop-color="white" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </button>
+      </div>
 
+      <script src="darkmode.js"></script>
+
+      <footer>
+        <ul
+          class="nav justify-content-center border-bottom"
+          style="margin-top: 60px"
+        >
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="admin/" class="nav-link px-2 text-muted">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">&copy; Techto</p>
+      </footer>
     </main>
 
     <!-- JavaScript -->
     <script>
-        // Fetch data from the backend and populate the content section
-        async function fetchPotholes() {
-            try {
+      // Fetch data from the backend and populate the content section
+      async function fetchPotholes() {
+        try {
+          if (!navigator.geolocation) {
+            throw new Error("Geolocation is not supported by this browser.");
+          }
 
-              if (!navigator.geolocation) {
-                    throw new Error('Geolocation is not supported by this browser.');
-                }
+          // Get user's current location
+          const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+          });
 
-                // Get user's current location
-                const position = await new Promise((resolve, reject) => {
-                    navigator.geolocation.getCurrentPosition(resolve, reject);
-                });
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
 
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
+          const response = await fetch("/potholes", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ latitude, longitude }),
+          });
 
-                const response = await fetch('/potholes', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ latitude, longitude })
-                });
+          if (!response.ok) {
+            throw new Error("Failed to fetch potholes");
+          }
 
-                if (!response.ok) {
-                    throw new Error('Failed to fetch potholes');
-                }
+          const data = await response.json();
+          const contentSection = document.getElementById("content-section");
+          contentSection.innerHTML = ""; // Clear existing content
 
-                const data = await response.json();
-                const contentSection = document.getElementById('content-section');
-                contentSection.innerHTML = ''; // Clear existing content
+          data.potholes.forEach((pothole) => {
+            const postContainer = document.createElement("div");
+            postContainer.classList.add(
+              "post-container",
+              "mb-4",
+              "p-3",
+              "border",
+              "rounded"
+            );
 
-                data.potholes.forEach(pothole => {
-                    const postContainer = document.createElement('div');
-                    postContainer.classList.add('post-container', 'mb-4', 'p-3', 'border', 'rounded');
-
-                    postContainer.innerHTML = `
+            postContainer.innerHTML = `
                         <div class="post-info mb-2">
                             <span class="sender-name">${pothole.title}</span><br>
                             <small>Location: ${pothole.location}</small>
@@ -152,23 +197,36 @@
                         </div>
                     `;
 
-                    contentSection.appendChild(postContainer);
-                });
-            } catch (error) {
-                console.error('Error fetching potholes:', error);
-                const contentSection = document.getElementById('content-section');
-                contentSection.innerHTML = '<p class="text-danger">Failed to load data.</p>';
-            }
+            contentSection.appendChild(postContainer);
+          });
+        } catch (error) {
+          console.error("Error fetching potholes:", error);
+          const contentSection = document.getElementById("content-section");
+          contentSection.innerHTML =
+            '<p class="text-danger">Failed to load data.</p>';
         }
+      }
 
-        // Call the function to fetch potholes when the page loads
-        document.addEventListener('DOMContentLoaded', fetchPotholes);
+      // Call the function to fetch potholes when the page loads
+      document.addEventListener("DOMContentLoaded", fetchPotholes);
     </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
