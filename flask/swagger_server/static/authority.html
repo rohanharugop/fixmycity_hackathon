@@ -1,300 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css"> <!-- Update this path -->
-
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <!-- Update this path -->
 
     <style>
-        
+      /* Layout for posts and contractor list */
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-        /* Layout for posts and contractor list */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
+      .post-container {
+        background: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        padding: 20px;
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-        .post-container {
-            background: #f8f9fa;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            padding: 20px;
-        }
+      /* Left side (posts area) */
+      .posts-section {
+        width: 60%;
+        padding-right: 20px;
+      }
 
-        /* Left side (posts area) */
-        .posts-section {
-            width: 60%;
-            padding-right: 20px;
-        }
+      .post-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
 
-        .post-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+      .contractor-assignment {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #343a40;
+        transition: color 0.3s;
+      }
 
-        .contractor-assignment {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #343a40;
-        }
+      .upvote-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        .upvote-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      .upvote-button:hover {
+        background-color: #0056b3;
+      }
 
-        .upvote-button:hover {
-            background-color: #0056b3;
-        }
+      /* Right side (contractor list area) */
+      .contractor-list {
+        width: 35%;
+        padding-left: 20px;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        position: sticky;
+        top: 20px;
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-        /* Right side (contractor list area) */
-        .contractor-list {
-            width: 35%;
-            padding-left: 20px;
-            background-color: #f1f1f1;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-        }
+      .contractor-list h4 {
+        list-style-type: none;
+        padding-left: 0;
+      }
 
-        .contractor-list ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+      .contractor-list ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
 
-        .contractor-list li {
-            background: #fff;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+      .contractor-list li {
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-        .contractor-list li span {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .contractor-list li span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .badge-primary {
-            background-color: #007bff;
-        }
+      .badge-primary {
+        background-color: #007bff;
+        transition: background-color 0.3s;
+      }
 
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            background-color: #343a40;
-            color: white;
-        }
+      footer {
+        margin-top: 60px;
+        padding: 20px;
+        background-color: #343a40;
+        color: white;
+        transition: background-color 0.3s, color 0.3s;
+      }
 
-        footer .nav-item a {
-            color: white;
-        }
+      footer .nav-item a {
+        color: white;
+        transition: color 0.3s;
+      }
 
-        footer .nav-item a:hover {
-            color: #007bff;
-        }
+      footer .nav-item a:hover {
+        color: #007bff;
+      }
+
+      /* Dark Mode styles */
+      .dark-mode .post-container {
+        background: #333; /* Dark background for posts */
+        color: #f5f5f5; /* Light text for dark mode */
+      }
+
+      .dark-mode .contractor-assignment {
+        color: #ccc; /* Adjusted text color for dark mode */
+      }
+
+      .dark-mode .upvote-button {
+        background-color: #4c9aff; /* Adjusted button color for dark mode */
+      }
+
+      .dark-mode .upvote-button:hover {
+        background-color: #0073e6; /* Adjusted hover color for button */
+      }
+
+      .dark-mode .contractor-list {
+        background-color: #242424; /* Dark background for contractor list */
+        color: #f5f5f5; /* Light text for dark mode */
+      }
+
+      .dark-mode .contractor-list li {
+        background: #333; /* Dark background for list items */
+        color: #f5f5f5; /* Light text for dark mode */
+      }
+
+      .dark-mode .contractor-list h4 {
+        background: #333; /* Dark background for list items */
+        color: #f5f5f5; /* Light text for dark mode */
+      }
+
+      .dark-mode .badge-primary {
+        background-color: #4c9aff; /* Adjusted badge color for dark mode */
+      }
+
+      .dark-mode footer {
+        background-color: #121212; /* Dark background for footer */
+        color: #cccccc; /* Light text for dark mode */
+      }
+
+      .dark-mode footer .nav-item a {
+        color: #cccccc; /* Light link color for footer */
+      }
+
+      .dark-mode footer .nav-item a:hover {
+        color: #66b2ff; /* Softer hover color for links in dark mode */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-          <div class="container">
-              <div class="icon-container">
-                  <div class="logo">
-                      <img src="images/picker.png" alt="Logo">
-                  </div>
-              </div>
-  
-      
-                 
-                                
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarToggle">
-              <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="home.html">HOME</a>
-                <a class="nav-item nav-link" href="about.html">ABOUT</a>
-              </div>
-              <div class="navbar-nav">
-                
-                <a href="profile.html" id="auth-links">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  Profile
-                </a>
-                <a href="logout.html" id="auth-links">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  Logout
-                </a>
-              </div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <div class="icon-container">
+            <div class="logo">
+              <img src="images/picker.png" alt="Logo" />
             </div>
           </div>
-        </nav>
-      </header>
 
-      <br>
-      <br>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarToggle"
+            aria-controls="navbarToggle"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="home.html">HOME</a>
+              <a class="nav-item nav-link" href="about.html">ABOUT</a>
+            </div>
+            <div class="navbar-nav">
+              <a href="profile.html" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Profile
+              </a>
+              <a href="logout.html" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <br />
+    <br />
 
     <main role="main" class="container">
-
-        <div class="row">
-            <!-- Left Side (Posts) -->
-            <div class="posts-section col-md-8">
-
-                <!-- Post 1 -->
-                <div class="post-container">
-                    <div class="post-info">
-                        <span class="sender-name">Alice Smith</span><br>
-                        <small>Location: Park Avenue</small>
-                    </div>
-
-                    <div class="post-type">
-                        <span class="badge badge-info">Bus Stop</span>
-                    </div>
-
-                    <img src="images/busstop.jpg" alt="Bus Stop Issue">
-
-                    <div class="post-content">
-                        <div class="col-10 mb-1 small">Seats are Broken</div>
-                    </div>
-
-                    <div class="contractor-assignment">
-                        <span><strong>Assigned Contractor:</strong> John Doe</span> 
-                    </div>
-
-                    <div class="upvote-container">
-                        <button class="upvote-button">
-                            <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19V6M5 12l7-7 7 7"></path>
-                            </svg>
-                            Upvote
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Post 2 -->
-                <div class="post-container">
-                    <div class="post-info">
-                        <span class="sender-name">Bob Johnson</span><br>
-                        <small>Location: Maple Street</small>
-                    </div>
-
-                    <div class="post-type">
-                        <span class="badge badge-info">Waste</span>
-                    </div>
-
-                    <img src="images/waste.jpg" alt="Waste Issue">
-
-                    <div class="post-content">
-                        <div class="col-10 mb-1 small">Large amount of Green waste</div>
-                    </div>
-
-                    <div class="contractor-assignment">
-                        <span><strong>Assigned Contractor:</strong> Jane Smith</span> 
-                    </div>
-
-                    <div class="upvote-container">
-                        <button class="upvote-button">
-                            <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19V6M5 12l7-7 7 7"></path>
-                            </svg>
-                            Upvote
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Post 3 -->
-                <div class="post-container">
-                    <div class="post-info">
-                        <span class="sender-name">Sangamesh</span><br>
-                        <small>Location: Rajaji Nagar</small>
-                    </div>
-
-                    <div class="post-type">
-                        <span class="badge badge-info">Pothole</span>
-                    </div>
-
-                    <img src="images/pathhole.jpg" alt="Pothole Issue">
-
-                    <div class="post-content">
-                        <div class="col-10 mb-1 small">Large 5 Potholes due to heavy rain</div>
-                    </div>
-
-                    <div class="contractor-assignment">
-                        <span><strong>Assigned Contractor:</strong> Michael Brown</span> 
-                    </div>
-
-                    <div class="upvote-container">
-                        <button class="upvote-button">
-                            <svg class="upvote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 19V6M5 12l7-7 7 7"></path>
-                            </svg>
-                            Upvote
-                        </button>
-                    </div>
-                </div>
-
+      <div class="row">
+        <!-- Left Side (Posts) -->
+        <div class="posts-section col-md-8">
+          <!-- Post 1 -->
+          <div class="post-container">
+            <div class="post-info">
+              <span class="sender-name">Alice Smith</span><br />
+              <small>Location: Park Avenue</small>
             </div>
 
-            <!-- Right Side (Contractor List) -->
-            <div class="contractor-list col-md-4">
-                <h4>Top Contractors</h4>
-                <ul>
-                    <li>
-                        <span>John Doe</span><span class="badge badge-primary">1500 Points</span>
-                    </li>
-                    <li>
-                        <span>Jane Smith</span><span class="badge badge-primary">1200 Points</span>
-                    </li>
-                    <li>
-                        <span>Michael Brown</span><span class="badge badge-primary">1000 Points</span>
-                    </li>
-                    <li>
-                        <span>Emily Johnson</span><span class="badge badge-primary">950 Points</span>
-                    </li>
-                    <li>
-                        <span>Chris Lee</span><span class="badge badge-primary">850 Points</span>
-                    </li>
-                </ul>
+            <div class="post-type">
+              <span class="badge badge-info">Bus Stop</span>
             </div>
+
+            <img src="images/busstop.jpg" alt="Bus Stop Issue" />
+
+            <div class="post-content">
+              <div class="col-10 mb-1 small">Seats are Broken</div>
+            </div>
+
+            <div class="contractor-assignment">
+              <span><strong>Assigned Contractor:</strong> John Doe</span>
+            </div>
+
+            <div class="upvote-container">
+              <button class="upvote-button">
+                <svg
+                  class="upvote-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 19V6M5 12l7-7 7 7"></path>
+                </svg>
+                Upvote
+              </button>
+            </div>
+          </div>
+
+          <!-- Post 2 -->
+          <div class="post-container">
+            <div class="post-info">
+              <span class="sender-name">Bob Johnson</span><br />
+              <small>Location: Maple Street</small>
+            </div>
+
+            <div class="post-type">
+              <span class="badge badge-info">Waste</span>
+            </div>
+
+            <img src="images/waste.jpg" alt="Waste Issue" />
+
+            <div class="post-content">
+              <div class="col-10 mb-1 small">Large amount of Green waste</div>
+            </div>
+
+            <div class="contractor-assignment">
+              <span><strong>Assigned Contractor:</strong> Jane Smith</span>
+            </div>
+
+            <div class="upvote-container">
+              <button class="upvote-button">
+                <svg
+                  class="upvote-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 19V6M5 12l7-7 7 7"></path>
+                </svg>
+                Upvote
+              </button>
+            </div>
+          </div>
+
+          <!-- Post 3 -->
+          <div class="post-container">
+            <div class="post-info">
+              <span class="sender-name">Sangamesh</span><br />
+              <small>Location: Rajaji Nagar</small>
+            </div>
+
+            <div class="post-type">
+              <span class="badge badge-info">Pothole</span>
+            </div>
+
+            <img src="images/pathhole.jpg" alt="Pothole Issue" />
+
+            <div class="post-content">
+              <div class="col-10 mb-1 small">
+                Large 5 Potholes due to heavy rain
+              </div>
+            </div>
+
+            <div class="contractor-assignment">
+              <span><strong>Assigned Contractor:</strong> Michael Brown</span>
+            </div>
+
+            <div class="upvote-container">
+              <button class="upvote-button">
+                <svg
+                  class="upvote-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 19V6M5 12l7-7 7 7"></path>
+                </svg>
+                Upvote
+              </button>
+            </div>
+          </div>
         </div>
 
-        <footer>
-            <ul class="nav justify-content-center border-bottom">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-            <p class="text-center text-muted">&copy; Techto</p>
-        </footer>
+        <!-- Right Side (Contractor List) -->
+        <div class="contractor-list col-md-4">
+          <h4><b>Top Contractors</b></h4>
+          <ul>
+            <li>
+              <span>John Doe</span
+              ><span class="badge badge-primary">1500 Points</span>
+            </li>
+            <li>
+              <span>Jane Smith</span
+              ><span class="badge badge-primary">1200 Points</span>
+            </li>
+            <li>
+              <span>Michael Brown</span
+              ><span class="badge badge-primary">1000 Points</span>
+            </li>
+            <li>
+              <span>Emily Johnson</span
+              ><span class="badge badge-primary">950 Points</span>
+            </li>
+            <li>
+              <span>Chris Lee</span
+              ><span class="badge badge-primary">850 Points</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mode-toggle">
+        <button id="toggle-dark-mode">
+          <svg
+            id="theme-icon"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+          >
+            <circle cx="12" cy="12" r="10" fill="url(#half-gradient)"></circle>
+            <defs>
+              <linearGradient id="half-gradient" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="50%" stop-color="black" />
+                <stop offset="50%" stop-color="white" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </button>
+      </div>
+      <script src="darkmode.js"></script>
+      <footer>
+        <ul class="nav justify-content-center border-bottom">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="admin/" class="nav-link px-2 text-muted">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">&copy; Techto</p>
+      </footer>
     </main>
 
     <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

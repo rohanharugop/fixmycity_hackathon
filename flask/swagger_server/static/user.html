@@ -157,7 +157,21 @@
             </div>
         </div>
         
-      
+        <div class="mode-toggle">
+          <button id="toggle-dark-mode">
+            <svg id="theme-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <circle cx="12" cy="12" r="10" fill="url(#half-gradient)"></circle>
+              <defs>
+                <linearGradient id="half-gradient" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="50%" stop-color="black" />
+                  <stop offset="50%" stop-color="white" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </button>
+        </div>
+        
+        <script src="darkmode.js"></script>
 
         <footer>
           <ul class="nav justify-content-center border-bottom"  style="margin-top: 60px;">
