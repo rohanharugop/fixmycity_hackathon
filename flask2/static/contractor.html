@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css"> <!-- Update this path -->
+
+    <style>
+        /* Styling for checkboxes on the left side */
+        .filter-section {
+            position: fixed;
+            left: 20px;
+            top: 100px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-section h5 {
+            margin-bottom: 15px;
+        }
+
+        .filter-buttons {
+            margin-bottom: 20px;
+        }
+
+        .post {
+            display: block; /* Ensure posts are visible by default */
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            margin-left: 180px; /* Add left margin to prevent overlap with the filter panel */
+            margin-top: 80px;
+        }
+
+        .post-container img {
+            width: 100%; /* Ensure images are responsive */
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <div class="icon-container">
+                <div class="logo">
+                    <img src="images/picker.png" alt="Logo">
+                </div>
+            </div>
+
+    
+               
+                              
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="home.html">HOME</a>
+              <a class="nav-item nav-link" href="about.html">ABOUT</a>
+            </div>
+            <div class="navbar-nav">
+              
+              <a href="profile.html" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Profile
+              </a>
+              <a href="logout.html" id="auth-links">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+<br>
+
+    <main role="main" class="container">
+        <!-- Filter Section with Checkboxes -->
+        <div class="filter-section">
+            <h5>Filter Posts</h5>
+            <div class="filter-buttons">
+                <div>
+                    <input type="checkbox" id="completed" checked>
+                    <label for="completed">Completed</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="pending" checked>
+                    <label for="pending">Pending</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="assigned" checked>
+                    <label for="assigned">Assigned</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts Section -->
+        <div class="content-section row">
+            <!-- Post 1 -->
+            <div class="col-md-4 post" data-status="completed">
+                <div class="post-container">
+                    <div class="post-info">
+                        <span class="sender-name">Alice Smith</span>
+                        <br>
+                        <small>Location: Park Avenue</small>
+                    </div>
+                    <div class="post-type">
+                        <span class="badge badge-info">Bus Stop</span>
+                    </div>
+                    <img src="images/busstop.jpg" alt="Bus Stop Issue">
+                    <div class="post-content">
+                        <div class="col-10 mb-1 small">Seats are Broken</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="col-md-4 post" data-status="pending">
+                <div class="post-container">
+                    <div class="post-info">
+                        <span class="sender-name">Bob Johnson</span>
+                        <br>
+                        <small>Location: Maple Street</small>
+                    </div>
+                    <div class="post-type">
+                        <span class="badge badge-info">Waste</span>
+                    </div>
+                    <img src="images/waste.jpg" alt="Waste Issue">
+                    <div class="post-content">
+                        <div class="col-10 mb-1 small">Large amount of Green waste</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="col-md-4 post" data-status="assigned">
+                <div class="post-container">
+                    <div class="post-info">
+                        <span class="sender-name">Sangamesh</span>
+                        <br>
+                        <small>Location: Rajaji Nagar</small>
+                    </div>
+                    <div class="post-type">
+                        <span class="badge badge-info">Pothole</span>
+                    </div>
+                    <img src="images/pathhole.jpg" alt="Pothole Issue">
+                    <div class="post-content">
+                        <div class="col-10 mb-1 small">Large 5 PathHoles due to heavy rain</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 post" data-status="pending">
+                <div class="post-container">
+                    <div class="post-info">
+                        <span class="sender-name">Rohan</span>
+                        <br>
+                        <small>Location: VijayaNagar</small>
+                    </div>
+                    <div class="post-type">
+                        <span class="badge badge-info">waterBlockage</span>
+                    </div>
+                    <img src="images/waterblock.jpeg" alt="water Issue">
+                    <div class="post-content">
+                        <div class="col-10 mb-1 small">Water Blockage due to heavy rain</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 post" data-status="completed">
+                <div class="post-container">
+                    <div class="post-info">
+                        <span class="sender-name">Rahul</span>
+                        <br>
+                        <small>Location: Mattikere</small>
+                    </div>
+                    <div class="post-type">
+                        <span class="badge badge-info">Street Lamp</span>
+                    </div>
+                    <img src="images/streetlamp.jpg" alt="street Issue">
+                    <div class="post-content">
+                        <div class="col-10 mb-1 small">Broken Street Lamp</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 post" data-status="completed">
+                <div class="post-container">
+                    <div class="post-info">
+                        <span class="sender-name">Sachet</span>
+                        <br>
+                        <small>Location: Malleshwaram</small>
+                    </div>
+                    <div class="post-type">
+                        <span class="badge badge-info">Darty Water</span>
+                    </div>
+                    <img src="images/dirtywater.jpg" alt="Dirty Water Issue">
+                    <div class="post-content">
+                        <div class="col-10 mb-1 small">Dirty Water of slum Household use</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <ul class="nav justify-content-center border-bottom" style="margin-top: 60px;">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="admin/" class="nav-link px-2 text-muted">Admin</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">&copy; Techto</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        // Function to filter posts based on checkbox selection
+        function filterPosts() {
+            // Get all the posts
+            const posts = document.querySelectorAll('.post');
+            const completedChecked = document.getElementById('completed').checked;
+            const pendingChecked = document.getElementById('pending').checked;
+            const assignedChecked = document.getElementById('assigned').checked;
+
+            posts.forEach(post => {
+                const status = post.getAttribute('data-status');
+                // Show or hide posts based on checkbox status
+                if (
+                    (status === 'completed' && completedChecked) ||
+                    (status === 'pending' && pendingChecked) ||
+                    (status === 'assigned' && assignedChecked)
+                ) {
+                    post.style.display = 'block'; // Show post
+                } else {
+                    post.style.display = 'none';  // Hide post
+                }
+            });
+        }
+
+        // Add event listeners to checkboxes to trigger filtering
+        document.getElementById('completed').addEventListener('change', filterPosts);
+        document.getElementById('pending').addEventListener('change', filterPosts);
+        document.getElementById('assigned').addEventListener('change', filterPosts);
+
+        // Initial call to display all posts
+        filterPosts();
+    </script>
+</body>
+</html>
