@@ -134,7 +134,7 @@ def serve_uploaded_file(filename):
 @app.route('/<path:path>')
 def serve_static(path):
     if path == "" or not os.path.exists(os.path.join(app.static_folder, path)):
-        path = 'index.html'  # Default to index.html for root
+        path = 'home.html'  # Default to index.html for root
     return send_from_directory(app.static_folder, path)
 
 if __name__ == '__main__':
