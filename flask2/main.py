@@ -6,7 +6,7 @@ import os
 # Flask application setup
 app = Flask(__name__, static_folder='static')  # Serve "static" folder for frontend files
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///potholes.db'
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = '/uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB max upload size
 
 # Ensure required folders exist
@@ -25,6 +25,8 @@ class Pothole(db.Model):
     longitude = db.Column(db.Float, nullable=False)
     image = db.Column(db.String(255), nullable=False)
 
+
+
 # Contractor model
 class Contractor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,6 +35,8 @@ class Contractor(db.Model):
     expertise = db.Column(db.String(255), nullable=False)
     rating = db.Column(db.Float, nullable=True)
     availability = db.Column(db.Boolean, default=True)
+
+
 
 # Create database tables
 with app.app_context():
